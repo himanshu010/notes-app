@@ -1,9 +1,11 @@
 const fs = require("fs");
 const chalk = require("chalk");
 const { bgGreen } = require("chalk");
+const { debug } = require("console");
 
 const addNote = (title, body) => {
   const notes = loadNotes();
+
   const duplicateNote = notes.find((note) => note.title === title);
   if (!duplicateNote) {
     notes.push({
@@ -33,6 +35,8 @@ const loadNotes = () => {
   }
 };
 
+debugger;
+
 const removeNote = (title) => {
   const notes = loadNotes();
   const notesToKeep = notes.filter((note) => note.title !== title);
@@ -57,6 +61,7 @@ const listNotes = () => {
     console.log(chalk.green.inverse(note.body + "\n"));
   });
 };
+debugger;
 
 const readNote = (title) => {
   const allNotes = loadNotes();
